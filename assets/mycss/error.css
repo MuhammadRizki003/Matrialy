@@ -1,0 +1,165 @@
+html,
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Days One', sans-serif;
+}
+
+body{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-color: #454D55;
+}
+.scene{
+    perspective: 400px;
+}
+.box{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+    transition: 0.3s;
+    animation-name: rotateAnimation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+.box__face{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    font-size: 120px;
+    line-height: 200px;
+    text-align: center;
+    color: antiquewhite;
+    border: 1px solid #1C7663;
+    border-radius: 5px;
+}
+.box__face.front{
+    transform: rotateY(0deg) translateZ(100px);
+    background: #1C7663;
+}
+.box__face.back{
+    transform: rotateY(90deg) translateZ(100px);
+    background: #1C7663;
+}
+.box__face.right{
+    transform: rotateY(180deg) translateZ(100px);
+    background: #1C7663;
+}
+.box__face.left{
+    transform: rotateY(-90deg) translateZ(100px);
+    background: #1C7663;
+}
+.box__face.top{
+    transform: rotateX(90deg) translateZ(100px);
+    background: #1C7663;
+    font-size: 60px !important; 
+}
+.box__face.bottom{
+    transform: rotateX(-90deg) translateZ(100px);
+    background: #1C7663;
+}
+@keyframes rotateAnimation{
+    25%{
+        transform: translateZ(-100px) rotateY(-90deg);
+    }
+    50%{
+        transform: translateZ(-100px) rotateY(-180deg);
+    }
+    75%{
+        transform: translateZ(-100px) rotateX(-90deg);
+    }
+    85%{
+        transform: translateZ(-100px) rotateX(-90deg);
+    }
+}
+.shadow{
+    position: absolute;
+    z-index: -1;
+    left: -50px;
+    top: calc(100% - 20px);
+    width: calc(100% + 100px);
+    height: 30px;
+    border-radius: 50%;
+    background: rgb(28, 46, 42);
+    filter: blur(20px);
+}
+.desc{
+    margin-top: 60px;
+    text-align: center;
+}
+.desc h2{
+    margin: 0;
+    font-size: 26px;
+    letter-spacing: 4px;
+}
+.desc button{
+    border: 2px solid #00B789;
+    background: transparent;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: 'Days One', sans-serif;
+    box-shadow: 4px 4px 0 0px rgba(19, 13, 26, 0.5);
+    position: relative;
+    transition: 0.3s;
+    outline: none;
+    cursor: pointer;
+    border-radius: 0 20px;
+    overflow: hidden;
+    color: antiquewhite;
+    letter-spacing: 4px;
+}
+.desc button:hover{
+    color: #fff;
+    letter-spacing: 2px;
+}
+.desc button:hover:after{
+    height: 100%;
+}
+.desc button:active{
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0);
+}
+
+/* Text Glitch (Grunge) Effect by igniel.com */
+.ignielGlitch {
+    color: #7b8fff;
+    position: relative;
+    animation: ignielGlitch1 3.5s infinite;
+    -moz-animation: ignielGlitch1 3.5s infinite;
+    -webkit-animation: ignielGlitch1 3.5s infinite;
+    -o-animation: ignielGlitch1 3.5s infinite;
+}
+.ignielGlitch:before,  .ignielGlitch:after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+.ignielGlitch:before {
+    color: #ff7300;
+    animation: ignielGlitch2 3.5s infinite;
+    -moz-animation: ignielGlitch2 3.5s infinite;
+    -webkit-animation: ignielGlitch2 3.5s infinite;
+    -o-animation: ignielGlitch2 3.5s infinite;
+}
+.ignielGlitch:after {
+    color: #fbff00;
+    animation: ignielGlitch3 3.5s infinite;
+    -moz-animation: ignielGlitch3 3.5s infinite;
+    -webkit-animation: ignielGlitch3 3.5s infinite;
+    -o-animation: ignielGlitch3 3.5s infinite;
+}
+@keyframes ignielGlitch1{0% {transform: none;opacity: 1;}7% {transform: skew(-0.5deg, -0.9deg);opacity: 0.75;}10% {transform: none;opacity: 1;}27% {transform: none;opacity: 1;}30% {transform: skew(0.8deg, -0.1deg);opacity: 0.75;}35% {transform: none;opacity: 1;}52% {transform: none;opacity: 1;}55% {transform: skew(-1deg, 0.2deg);opacity: 0.75;}50% {transform: none;opacity: 1;}72% {transform: none;opacity: 1;}75% {transform: skew(0.4deg, 1deg);opacity: 0.75;}80% {transform: none;opacity: 1;}100% {transform: none;opacity: 1;}}
+@-webkit-keyframes ignielGlitch1{0% {transform: none;opacity: 1;}7% {transform: skew(-0.5deg, -0.9deg);opacity: 0.75;}10% {transform: none;opacity: 1;}27% {transform: none;opacity: 1;}30% {transform: skew(0.8deg, -0.1deg);opacity: 0.75;}35% {transform: none;opacity: 1;}52% {transform: none;opacity: 1;}55% {transform: skew(-1deg, 0.2deg);opacity: 0.75;}50% {transform: none;opacity: 1;}72% {transform: none;opacity: 1;}75% {transform: skew(0.4deg, 1deg);opacity: 0.75;}80% {transform: none;opacity: 1;}100% {transform: none;opacity: 1;}}
+@keyframes ignielGlitch2{0% {transform: none;opacity: 0.25;}7% {transform: translate(-2px, -3px);opacity: 0.5;}10% {transform: none;opacity: 0.25;}27% {transform: none;opacity: 0.25;}30% {transform: translate(-5px, -2px);opacity: 0.5;}35% {transform: none;opacity: 0.25;}52% {transform: none;opacity: 0.25;}55% {transform: translate(-5px, -1px);opacity: 0.5;}50% {transform: none;opacity: 0.25;}72% {transform: none;opacity: 0.25;}75% {transform: translate(-2px, -6px);opacity: 0.5;}80% {transform: none;opacity: 0.25;}100% {transform: none;opacity: 0.25;}}
+@-webkit-keyframes ignielGlitch2{0% {transform: none;opacity: 0.25;}7% {transform: translate(-2px, -3px);opacity: 0.5;}10% {transform: none;opacity: 0.25;}27% {transform: none;opacity: 0.25;}30% {transform: translate(-5px, -2px);opacity: 0.5;}35% {transform: none;opacity: 0.25;}52% {transform: none;opacity: 0.25;}55% {transform: translate(-5px, -1px);opacity: 0.5;}50% {transform: none;opacity: 0.25;}72% {transform: none;opacity: 0.25;}75% {transform: translate(-2px, -6px);opacity: 0.5;}80% {transform: none;opacity: 0.25;}100% {transform: none;opacity: 0.25;}}
+@keyframes ignielGlitch3{0% {transform: none;opacity: 0.25;}7% {transform: translate(2px, 3px);opacity: 0.5;}10% {transform: none;opacity: 0.25;}27% {transform: none;opacity: 0.25;}30% {transform: translate(5px, 2px);opacity: 0.5;}35% {transform: none;opacity: 0.25;}52% {transform: none;opacity: 0.25;}55% {transform: translate(5px, 1px);opacity: 0.5;}50% {transform: none;opacity: 0.25;}72% {transform: none;opacity: 0.25;}75% {transform: translate(2px, 6px);opacity: 0.5;}80% {transform: none;opacity: 0.25;}100% {transform: none;opacity: 0.25;}}
+@-webkit-keyframes ignielGlitch3{0% {transform: none;opacity: 0.25;}7% {transform: translate(2px, 3px);opacity: 0.5;}10% {transform: none;opacity: 0.25;}27% {transform: none;opacity: 0.25;}30% {transform: translate(5px, 2px);opacity: 0.5;}35% {transform: none;opacity: 0.25;}52% {transform: none;opacity: 0.25;}55% {transform: translate(5px, 1px);opacity: 0.5;}50% {transform: none;opacity: 0.25;}72% {transform: none;opacity: 0.25;}75% {transform: translate(2px, 6px);opacity: 0.5;}80% {transform: none;opacity: 0.25;}100% {transform: none;opacity: 0.25;}}
