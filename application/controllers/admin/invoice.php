@@ -128,7 +128,7 @@ class Invoice extends CI_Controller
 	{
 		$data['title']	 = 'Laporan Barang Terjual';
 		if ($this->input->get('bln') == '') {
-			$this->laporanJual();
+			redirect('admin/invoice/laporanJual');
 		} else {
 			$cari = $this->input->get('bln');
 			$data['bulan'] = $cari;
@@ -144,5 +144,64 @@ class Invoice extends CI_Controller
 		$this->load->view('templates_admin/navbar');
 		$this->load->view('admin/laporanjual', $data);
 		$this->load->view('templates_admin/footer');
+	}
+	public function excelData($ket)
+	{
+		$data['title']	 = 'Invoice';
+		$ket = str_replace('_', ' ', $ket);
+		$data['sortBy'] = 'Transaksi Berdasarkan ' . $ket;
+		$data['invoice'] = $this->model_invoice->ambilBerdasarkan($ket);
+		$data['pesanan'] = $this->model_invoice->dataDetail();
+		$this->printData($data);
+	}
+	public function excelDataBln($ket)
+	{
+		$data['title']	 = 'Invoice';
+		if ($ket == "") {
+			$this->index();
+		} else {
+			$cari = $ket;
+			$data['sort'] = $cari;
+			$data['invoice'] = $this->model_invoice->dataBulan($cari);
+			$data['pesanan'] = $this->model_invoice->dataDetail();
+			$this->printData($data);
+		}
+	}
+	public function excelAll()
+	{
+		$data['title']	 = 'Invoice';
+		$data['sortBy'] = 'Semua Transaksi';
+		$data['invoice'] = $this->model_invoice->tampilData();
+		$data['pesanan'] = $this->model_invoice->dataDetail();
+		$this->printData($data);
+	}
+	private function printData($data)
+	{
+		$this->load->view('print/excelInvoice', $data);
+	}
+	public function excelJual()
+	{
+		$data['title'] = 'Laporan Barang Terjual';
+		$data['bulan'] = 'Semua Data Barang Terjual';
+		$data['produk'] = $this->model_invoice->produk();
+		$data['pesanan'] = $this->model_invoice->produkTerjual();
+		$this->excelJualPrint($data);
+	}
+	public function excelJualBln($sort)
+	{
+		$data['title']	 = 'Laporan Barang Terjual';
+		if ($sort == '') {
+			redirect('admin/invoice/laporanJual');
+		} else {
+			$cari = $sort;
+			$data['bulan'] = $cari;
+			$data['produk'] = $this->model_invoice->produk();
+			$data['pesanan'] = $this->model_invoice->produkTerjualBln($cari);
+			$this->excelJualPrint($data);
+		}
+	}
+	private function excelJualPrint($data)
+	{
+		$this->load->view('print/excelJual', $data);
 	}
 }
