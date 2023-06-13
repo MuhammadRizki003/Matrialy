@@ -23,7 +23,17 @@
                 </form>
                 <div class="col-lg-8 col-md-6 col-3 no-print">
                     <div class="row">
-                        <button class="btn btn-primary col-lg-2 col-md-4 col-7 mt-2 ml-auto" onclick=" window.print(); ">Print</button>
+                        <?php
+                        $sort = $this->uri->segment(3);
+                        if ($sort == 'laporanJual') {
+                        ?>
+                            <a href="<?php echo base_url('admin/invoice/excelJual/') ?> " class=" btn btn-success col-lg-2 col-md-4 col-7 mt-2 mr-1 ml-auto"><i class="far fa-file-excel"></i> Print</a>
+                        <?php } else {
+                        ?>
+                            <a href="<?php echo base_url('admin/invoice/excelJualBln/' . $bulan) ?> " class=" btn btn-success col-lg-2 col-md-4 col-7 mt-2 mr-1 ml-auto"><i class="far fa-file-excel"></i> Print</a>
+                        <?php }
+                        ?>
+                        <button class="btn btn-primary col-lg-2 col-md-4 col-7 mt-2" onclick=" window.print(); ">Print</button>
                     </div>
                 </div>
             </div>
