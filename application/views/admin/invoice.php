@@ -46,8 +46,23 @@
         </div>
       </form>
       <div class="col-lg-8 col-md-6 col-3 no-print">
-        <div class="row">
-          <button class="btn btn-primary col-lg-2 col-md-4 col-7 mt-2 ml-auto" onclick=" window.print(); ">Print</button>
+        <div class="row col-12 ">
+          <?php
+          if ($this->uri->segment('4')) {
+            $ket = $this->uri->segment('4');
+          ?>
+            <a href="<?php echo base_url('admin/invoice/excelData/' . $ket) ?>" class="btn btn-success col-lg-2 col-md-4 col-7 mt-2 mr-1 ml-auto"><i class="far fa-file-excel"></i> Print</a>
+          <?php
+          } elseif (!empty($sort)) {
+            $ket = $sort;
+          ?>
+            <a href="<?php echo base_url('admin/invoice/excelDataBln/' . $ket) ?> " class=" btn btn-success col-lg-2 col-md-4 col-7 mt-2 mr-1 ml-auto"><i class="far fa-file-excel"></i> Print</a>
+          <?php } else {
+          ?>
+            <a href="<?php echo base_url('admin/invoice/excelAll/') ?> " class=" btn btn-success col-lg-2 col-md-4 col-7 mt-2 mr-1 ml-auto"><i class="far fa-file-excel"></i> Print</a>
+          <?php } ?>
+
+          <button class="btn btn-primary col-lg-2 col-md-4 col-7 mt-2 " onclick=" window.print(); ">Print</button>
         </div>
       </div>
     </div>
