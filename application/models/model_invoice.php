@@ -128,7 +128,7 @@ class Model_invoice extends CI_Model
 		$result = $this->db->query('select inv.tgl_pesan, inv.keterangan, pe.jumlah, pe.nama_produk from tb_invoice as inv,tb_pesanan as pe where inv.keterangan="Barang Sampai" and inv.id_invoice=pe.id_invoice and inv.tgl_pesan like "%' . $tgl . '%";')->result();
 		return $result;
 	}
-	}
+	
 	public function hapusInvoice($id)
 	{
 		$where = array('id_invoice' => $id);
