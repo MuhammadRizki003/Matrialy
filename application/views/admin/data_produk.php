@@ -35,7 +35,7 @@
 						<td align="left">Rp.<?php echo number_format($prd->harga, 0, ',', '.') ?></td>
 						<td align="center"><?php echo $prd->stok ?></td>
 						<td align="center">
-							<?php echo anchor('admin/data_produk/edit/' . $prd->id_produk, '<div class="btn btn-primary btn-sm mr-1 mb-1 col-lg-4 col-md-6 col-12"><i class="fa fa-edit"></i></div>')  ?><?php echo anchor('admin/data_produk/hapus/' . $prd->id_produk, '<div class="btn btn-danger btn-sm mb-1 col-lg-4 col-md-6 col-12"><i class="fa fa-trash"></i></div>')  ?>
+							<?php echo anchor('admin/data_produk/edit/' . $prd->id_produk, '<div class="btn btn-primary btn-sm mr-1 mb-1 col-lg-4 col-md-6 col-12"><i class="fa fa-edit"></i></div>')  ?><?php echo anchor('admin/data_produk/hapus/' . $prd->id_produk, '<div class="btn btn-danger btn-sm mb-1 col-lg-4 col-md-6 col-12" onclick="return confirm(\'Hapus Produk?\')"><i class="fa fa-trash"></i></div>')  ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
