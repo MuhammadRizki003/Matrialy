@@ -55,13 +55,13 @@
             <div class="row">
 
                 <div class="col-4">
-                    <a href="<?php echo base_url('cart/hapus_keranjang') ?>" class="btn btn-sm btn-block btn-danger ">Hapus semua</a>
+                    <button type="button" onclick="javascript: hapusCart()" class="btn  btn-block btn-danger ">Hapus semua</button>
                 </div>
                 <div class="col-4">
-                    <a href="<?php echo base_url('home/index') ?>" class="btn btn-sm btn-block btn-primary">Beli Lagi</a>
+                    <a href="<?php echo base_url('home/index') ?>" class="btn  btn-block btn-primary">Beli Lagi</a>
                 </div>
                 <div class="col-4">
-                    <a href="<?php echo base_url('cart/pemesanan') ?>" class="btn btn-sm btn-block btn-success">Buat Pesanan</a>
+                    <a href="<?php echo base_url('cart/pemesanan') ?>" class="btn  btn-block btn-success">Buat Pesanan</a>
                 </div>
             <?php
         else : ?>
@@ -89,6 +89,21 @@
                         Mohon maaf, <?php echo $this->session->flashdata('messageErr') ?> buah
                     </div>
                     <button type="button" class="btn btn-danger btn-lg text-md col-12 text-center text-light pb-3" data-dismiss="modal" style="border-radius: 0px; background:transparent; border:0px;"><strong>OK</strong> </button>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="modalHapus" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body mt-2 mb-2 text-center text-md">
+                        <div>Yakin ingin menghapus semua barang di keranjang?</div>
+                        <div class="row col-12 mt-4 ">
+                            <button type="button" class="btn mx-auto btn-primary btn-lg text-md col-5 text-center text-light" data-dismiss="modal">Batal</button>
+                            <button onclick="location.href='<?php echo base_url('cart/hapus_keranjang') ?>'" class="btn mx-auto btn-danger btn-lg text-md col-5 text-center text-light" id="countHapus"></button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
