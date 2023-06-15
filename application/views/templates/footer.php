@@ -177,6 +177,24 @@
 		}
 	});
 </script> -->
+<script>
+	function hapusCart() {
+		$('#modalHapus').modal('show');
+		var timeleft = 3;
+		document.getElementById("countHapus").disabled = true;
+		document.getElementById("countHapus").textContent = 'Tunggu ' + timeleft + ' detik';
+		var downloadTimer = setInterval(function() {
+			timeleft--;
+			document.getElementById("countHapus").textContent = 'Tunggu ' + timeleft + ' detik';
+			if (timeleft <= 0) {
+				document.getElementById("countHapus").textContent = "Hapus Keranjang";
+				document.getElementById("countHapus").disabled = false;
+				// document.getElementById("buttonIklan").style.visibility = "hidden";
+				clearInterval(downloadTimer);
+			}
+		}, 1000);
+	}
+</script>
 
 </body>
 
