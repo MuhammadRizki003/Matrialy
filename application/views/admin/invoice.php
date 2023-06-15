@@ -107,7 +107,7 @@
             <td><?php echo $inv->status ?></td>
             <td>Rp.<?php echo number_format($total, 0, ',', '.'); ?></td>
             <td class="no-print"><?php echo anchor('admin/invoice/detail/' . $inv->id_invoice, '<div class="btn btn-sm btn-primary col-12">Detail</div>') ?></td>
-            <td class="no-print"><?php echo anchor('admin/invoice/hapus/' . $inv->id_invoice, '<div class="btn btn-sm btn-danger col-12">Hapus</div>') ?></td>
+            <td class="no-print"><?php echo anchor('admin/invoice/hapus/' . $inv->id_invoice, '<div class="btn btn-sm btn-danger col-12 " onclick="return confirm(\'Hapus Pesanan?\')">Hapus</div>'); ?></td>
 
           </tr>
         <?php
