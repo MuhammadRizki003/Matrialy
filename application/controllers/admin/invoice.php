@@ -46,8 +46,7 @@ class Invoice extends CI_Controller
 
 	public function hapus($id_invoice)
 	{
-		$where = array('id_invoice' => $id_invoice);
-		$this->model_invoice->hapusInvoice($where);
+		$this->model_invoice->hapusInvoice($id_invoice);
 	}
 
 	public function konfirmasi($id_invoice)
