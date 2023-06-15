@@ -128,8 +128,16 @@ class Model_invoice extends CI_Model
 		$result = $this->db->query('select inv.tgl_pesan, inv.keterangan, pe.jumlah, pe.nama_produk from tb_invoice as inv,tb_pesanan as pe where inv.keterangan="Barang Sampai" and inv.id_invoice=pe.id_invoice and inv.tgl_pesan like "%' . $tgl . '%";')->result();
 		return $result;
 	}
-	public function hapusInvoice($where)
+	}
+	public function hapusInvoice($id)
 	{
+		$where = array('id_invoice' => $id);
+		$update = $this->db->query("select id_produk, jumlah from tb_pesanan where id_invoice = '$id'")->result_array();
+		foreach ($update as $up) {
+			$jmlup = $up['jumlah'];
+			$idup = $up['id_produk'];
+			$this->db->query("update tb_produk set stok=stok+'$jmlup' where id_produk = '$idup';");
+		}
 		$this->db->where($where)->delete('tb_invoice');
 		$this->db->where($where)->delete('tb_pesanan');
 		redirect('admin/invoice');
