@@ -54,14 +54,14 @@
         <div class="container-fluid">
             <div class="row">
 
-                <div class="col-4">
-                    <button type="button" onclick="javascript: hapusCart(0)" class="btn  btn-block btn-danger ">Hapus semua</button>
+                 <div class="col-4">
+                    <button type="button" onclick="javascript: hapusCart(0)" class="btn  btn-block btn-danger text-center">Hapus keranjang</button>
                 </div>
                 <div class="col-4">
-                    <a href="<?php echo base_url('home/index') ?>" class="btn  btn-block btn-primary">Beli Lagi</a>
+                    <a href="<?php echo base_url('home/index') ?>" class="btn  btn-block btn-primary">Tambah barang Lagi</a>
                 </div>
                 <div class="col-4">
-                    <a href="<?php echo base_url('cart/pemesanan') ?>" class="btn  btn-block btn-success">Buat Pesanan</a>
+                    <a href="<?php echo base_url('cart/pemesanan') ?>" class="btn  btn-block btn-success">Proses&nbspPembayaran</a>
                 </div>
             <?php
         else : ?>
