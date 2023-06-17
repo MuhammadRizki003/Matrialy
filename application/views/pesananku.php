@@ -161,7 +161,14 @@
             </div>
           </div>
         </div>
-      <?php endforeach; ?>
+      <?php endforeach;
+      else : ?>
+        <div class="row">
+          <div class="text-lg mt-2 mx-auto">Tidak ada Pesanan.</div>
+        </div>
+      <?php
+      endif;
+      ?>
     </div>
   </div>
 </div>
