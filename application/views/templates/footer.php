@@ -178,21 +178,28 @@
 	});
 </script> -->
 <script>
-	function hapusCart() {
-		$('#modalHapus').modal('show');
-		var timeleft = 3;
-		document.getElementById("countHapus").disabled = true;
-		document.getElementById("countHapus").textContent = 'Tunggu ' + timeleft + ' detik';
-		var downloadTimer = setInterval(function() {
-			timeleft--;
-			document.getElementById("countHapus").textContent = 'Tunggu ' + timeleft + ' detik';
-			if (timeleft <= 0) {
-				document.getElementById("countHapus").textContent = "Hapus Keranjang";
-				document.getElementById("countHapus").disabled = false;
-				// document.getElementById("buttonIklan").style.visibility = "hidden";
-				clearInterval(downloadTimer);
-			}
-		}, 1000);
+	var downloadTimer;
+	function hapusCart($cancel) {
+		if ($cancel == 0) {
+			var timeleft = 3;
+			$('#modalHapus').modal('show');
+			downloadTimer = setInterval(function() {
+				timeleft--;
+				document.getElementById("countHapus").textContent = 'Tunggu ' + timeleft + ' detik';
+				if (timeleft <= 0) {
+					document.getElementById("countHapus").textContent = "Hapus Keranjang";
+					document.getElementById("countHapus").disabled = false;
+					// document.getElementById("buttonIklan").style.visibility = "hidden";
+					clearInterval(downloadTimer);
+				}
+			}, 1000);
+		}
+		if ($cancel == 1) {
+			document.getElementById("countHapus").disabled = true;
+			document.getElementById("countHapus").textContent = 'Tunggu 3 detik';
+			clearInterval(downloadTimer);
+			$('#modalHapus').modal('hide');
+		}
 	}
 </script>
 
