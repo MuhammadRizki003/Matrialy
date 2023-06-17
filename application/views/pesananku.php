@@ -7,7 +7,8 @@
   <div class="content">
     <div class="container-fluid">
       <?php
-      foreach ($invoice as $inv) : ?>
+      if ($invoice != false) :
+        foreach ($invoice as $inv) : ?>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title white-text">Pemesan : <?php echo $inv->nama_pemesan; ?></h5><br>
