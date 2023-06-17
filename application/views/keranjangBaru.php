@@ -55,7 +55,7 @@
             <div class="row">
 
                 <div class="col-4">
-                    <button type="button" onclick="javascript: hapusCart()" class="btn  btn-block btn-danger ">Hapus semua</button>
+                    <button type="button" onclick="javascript: hapusCart(0)" class="btn  btn-block btn-danger ">Hapus semua</button>
                 </div>
                 <div class="col-4">
                     <a href="<?php echo base_url('home/index') ?>" class="btn  btn-block btn-primary">Beli Lagi</a>
@@ -82,7 +82,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="test123" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id="test123" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-content-danger" style="background: #E74C3C;">
                     <div class="modal-body mt-2 text-center text-md">
@@ -99,8 +99,8 @@
                     <div class="modal-body mt-2 mb-2 text-center text-md">
                         <div>Yakin ingin menghapus semua barang di keranjang?</div>
                         <div class="row col-12 mt-4 ">
-                            <button type="button" class="btn mx-auto btn-primary btn-lg text-md col-5 text-center text-light" data-dismiss="modal">Batal</button>
-                            <button onclick="location.href='<?php echo base_url('cart/hapus_keranjang') ?>'" class="btn mx-auto btn-danger btn-lg text-md col-5 text-center text-light" id="countHapus"></button>
+                            <button type="button" class="btn mx-auto btn-primary btn-lg text-md col-5 text-center text-light" onclick="javascript: hapusCart(1)">Batal</button>
+                            <button onclick="location.href='<?php echo base_url('cart/hapus_keranjang') ?>'" class="btn mx-auto btn-danger btn-lg text-md col-5 text-center text-light" id="countHapus" disabled>Tunggu 3 detik</button>
                         </div>
                     </div>
 
