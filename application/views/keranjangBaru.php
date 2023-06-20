@@ -61,7 +61,7 @@
                     <a href="<?php echo base_url('home/index') ?>" class="btn  btn-block btn-primary">Tambah barang Lagi</a>
                 </div>
                 <div class="col-4">
-                    <a href="<?php echo base_url('cart/pemesanan') ?>" class="btn  btn-block btn-success">Proses&nbspPembayaran</a>
+                    <a href="<?php echo base_url('cart/pemesanan') ?>" class="btn  btn-block btn-success">Lanjut Pembayaran</a>
                 </div>
             <?php
         else : ?>
