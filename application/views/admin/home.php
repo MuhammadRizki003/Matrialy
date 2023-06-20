@@ -80,7 +80,11 @@
               <td>
                 <form action="<?php echo base_url('auth/reset_password/') ?>" method=post>
                   <input type="hidden" name="id" value="<?php echo $usr->id_user ?>">
-                  <button type="submit" class="btn btn-danger" onclick="return confirm('Reset Pasword User?')">Reset Password</button>
+                  <div class="row">
+                    <input type="hidden" id="<?php echo $usr->id_user ?>" class="form-control text-center col-6" name="password">
+                    <button type="button" class="btn btn-danger col-6" id="but<?php echo $usr->id_user ?>" onclick="gantiPassUser(<?php echo $usr->id_user ?>)">Reset Password</button>
+                    <button type="submit" class="btn btn-danger col-6" style="visibility: hidden ;" id="sub<?php echo $usr->id_user ?>" onclick="return confirm('Reset Pasword User?')">Reset Password</button>
+                  </div>
                 </form>
             </tr>
           <?php endforeach; ?>
