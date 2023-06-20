@@ -73,6 +73,16 @@
 
 	});
 </script>
+<script>
+	function gantiPassUser(id) {
+		var user = id;
+		var buttonReset = 'but' + id;
+		var submitButton = 'sub' + id;
+		document.getElementById(user).setAttribute('type', 'text');
+		document.getElementById(buttonReset).style.display = 'none';
+		document.getElementById(submitButton).style.visibility = 'visible';
+	}
+</script>
 
 </body>
 
