@@ -339,7 +339,7 @@ class Auth extends CI_Controller
 	{
 		$id 	= $this->input->post('id');
 		$where = array('id_user' => $id);
-		$reset = '12345';
+		$reset = $this->input->post('password');
 		$password = password_hash($reset, (PASSWORD_DEFAULT));
 		$update = array('password' => $password);
 		$where = array('id_user' => $id);
