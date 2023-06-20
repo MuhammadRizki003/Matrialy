@@ -1,6 +1,6 @@
 <div class="content-wrapper">
     <div class="content-header">
-        <div class=" card  mx-auto col-lg-6 col-md-8 col-12 mb-3 ml-5">
+        <div class=" card  mx-auto col-12 mb-5 mt-1 ml-5">
             <img src="<?php echo base_url('assets/gambar/logo/logo_white_large.png') ?>" alt="AdminLTE Logo" class="col-6 "><br>
             <div class="ml-3 mr-3">
 
@@ -30,8 +30,7 @@
                     </tr>
                 </table>
                 <div class="titik">
-                    <h5>..............................................................................................................................................................................................................</h5>
-
+                    <h5>..........................................................................................................................................................................................................................................................................................................................................................................................................</h5>
                     <table class="col-12 table table-borderless table-sm">
                         <tr>
                             <td>Nama Produk</td>
@@ -58,7 +57,7 @@
                         }; ?>
                     </table>
                     <div class="titik ">
-                        <h5>..................................................................................................................................................................................................................</h5>
+                        <h5>..........................................................................................................................................................................................................................................................................................................................................................................................................</h5>
                         <table class="col-6 table table-borderless table-sm ml-auto">
                             <tr>
                                 <td>Total Produk</td>
@@ -74,11 +73,12 @@
                         <form action="<?php echo base_url('order/bayar') ?>" method=post enctype="multipart/form-data">
                             <div class="form-group">
                                 <input type="hidden" name="id_invoice" value="<?php echo $id; ?>">
+                                <img id="preview" src="" alt="" class="col-lg-3 col-md-4 col-12 mx-auto mt-2">
                                 <div class="row mt-2">
                                     <input type="file" onchange="previewGambar()" name="gambar" id='gambar' class="form-control-file btn btn-dark col-9" required>
                                     <button type="submit" class="btn btn-success col-3">kirim</button>
                                 </div>
-                                <img id="preview" src="" alt="" class="col-12 mx-auto mt-2">
+
                             </div>
 
                         </form>
