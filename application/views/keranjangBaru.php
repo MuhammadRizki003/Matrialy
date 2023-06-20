@@ -82,7 +82,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="test123" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static">
+        <div class="modal fade" id="test123" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content modal-content-danger" style="background: #E74C3C;">
                     <div class="modal-body mt-2 text-center text-md">
@@ -93,7 +93,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="modalHapus" aria-hidden="true">
+        <div class="modal fade" id="modalHapus" tabindex="-1" role="dialog" aria-labelledby="modalHapus" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-body mt-2 mb-2 text-center text-md">
