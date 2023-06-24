@@ -53,21 +53,24 @@ class Cart extends CI_Controller
         $stok = $this->input->post('stok');
         $cart = $this->cart->contents();
         if ($qty > $cart[$row]['stok']) {
-            $data = array(
-                'rowid' => $row,
-                'qty' => $cart[$row]['stok']
-            );
             $this->session->set_flashdata(
                 'messageErr',
                 $cart[$row]['name'] . ' hanya tersisa sebanyak ' . $cart[$row]['stok']
             );
         } else {
-            $data = array(
-                'rowid' => $row,
-                'qty' => $qty
-            );
+            if (strpos($qty, '.')) {
+                $this->session->set_flashdata(
+                    'message',
+                    '<div class= "pt-2 pl-3 pr-3"><div class="alert alert-danger mx-auto" align="center" role="alert"><strong>Jumlah barang tidak bisa desimal!.</strong></div></div>'
+                );
+            } else {
+                $data = array(
+                    'rowid' => $row,
+                    'qty' => $qty
+                );
+                $this->cart->update($data);
+            }
         }
-        $this->cart->update($data);
         redirect('cart/detail_keranjang');
     }
 
