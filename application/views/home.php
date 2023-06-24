@@ -64,7 +64,7 @@
                       ?>
                        <div class="row">
                           <button class="btn btn-outline-secondary text-light col-3" type="button" onclick="javascript: min('input<?php echo $prd->id_produk; ?>');" style="border: none;">-</button>
-                          <input type=" number" min="1" name="qty" value=1 id="input<?php echo $prd->id_produk; ?>" class="form-control col-6 text-center" style="border: none;">
+                          <input type=" number" min="1" pattern="[0-9]" oninvalid="setCustomValidity('Jumlah tidak bisa desimal!')" name="qty" value=1 id="input<?php echo $prd->id_produk; ?>" class="form-control col-6 text-center" style="border: none;">
                           <button class="btn  btn-outline-secondary text-light col-3 " type="button" onclick="javascript: plus('input<?php echo $prd->id_produk; ?>',<?php echo $prd->stok; ?>);" style="border: none;">+</button>
                           <button class=" btn btn-primary text-white col-12 mt-2 " type=" submit"><i class="fas fa-shopping-cart"></i>+Keranjang</button>
                         </div>
