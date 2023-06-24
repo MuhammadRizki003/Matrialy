@@ -12,7 +12,7 @@ Akun Admin
 - Password  : admin
 	
 	
-berikut adalah beberapa tampilan website matrialy:
+berikut adalah beberapa tampilan website matrialy: ( Mungkin ada perbedaan tampilan karna ada perubahan !)
 
 Login Page
 ![image](https://github.com/MuhammadRizki003/Matrialy/assets/105654161/bdbf0983-a45d-48f7-859a-9e8fd6b7f1bb)
