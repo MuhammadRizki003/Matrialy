@@ -175,10 +175,12 @@ class Auth extends CI_Controller
 		} else {
 			if ($this->session->userdata('role_id') == 2) {
 				$data['title'] = 'Info User ';
+				$data['kota'] =  $this->model_user->tampilkota()->result();    //baru
+				$data['alamat'] = $this->model_user->tampilAlamat($this->session->userdata('id_user'));
 				$this->load->view('templates/header', $data);
 				$this->load->view('templates/navbar');
 				$this->load->view('templates/sidebar');
-				$this->load->view('auth/userdata');
+				$this->load->view('auth/userdata', $data);
 				$this->load->view('templates/footer');
 			} elseif ($this->session->userdata('role_id') == 1) {
 				$data['title'] = 'Info Admin ';
@@ -349,5 +351,34 @@ class Auth extends CI_Controller
 			'<div class="alert alert-success text-center" role="alert">Password User Berhasil Di Reset!</div>'
 		);
 		redirect('admin/home_admin');
+	}
+
+	public function alamat()
+	{ //baru
+		$id = $this->input->post('id_user');
+		$kota 	= $this->input->post('kota');
+		$alamat = $this->input->post('alamat');
+		$id_user = array("id_user" => $id);
+		$cekalamat = $this->model_user->cariDataAlamat($id_user);
+		if ($cekalamat == false) {
+			$alamat = array(
+				'id_user' => $id,
+				"kota" => $kota,
+				'alamat' => $alamat
+			);
+			$this->model_user->tambahAlamat($alamat, 'tb_alamat');
+		} else {
+			$where = array("id_user" => $id);
+			$update = array(
+				"kota" => $kota,
+				'alamat' => $alamat
+			);
+			$this->model_user->ubahAlamat($where, $update, 'tb_alamat');
+		}
+		$this->session->set_flashdata(
+			'message',
+			'<div class="alert alert-success text-center" role="alert">Alamat Berhasil Di Reset!</div>'
+		);
+		redirect('auth/info_akun');
 	}
 }
